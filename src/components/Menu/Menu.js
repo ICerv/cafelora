@@ -1,9 +1,8 @@
 import './Menu.css';
 import { Drink } from './components/Drink/Drink.js';
-import { Layer } from './components/Layer/Layer';
 
-export const Menu = () => {
-
+export const Menu = (props) => {
+    const { drinks } = props;
     const element = document.createElement('section')
     element.classList.add('menu')
 
@@ -21,19 +20,46 @@ export const Menu = () => {
         </div>
     `
 
-    element.querySelector('.drinks-list').append(
-        Drink({
-            id: '1',
-            name: 'romano',
-            ordered: true,
-            image: 'https://cafelora.kodim.app/assets/cups/romano.png',
-            layers: [
-                {
-                    color: '#feeeca',
-                    label: 'mléčná pěna',
-                }
-            ]
-        })
-    )
+
+    if (drinks === 'loading') {
+
+        fetch(`https://cafelora.kodim.app/api/me/drinks`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        }).then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+                element.replaceWith(
+                    Menu({
+                        drinks: data.result,
+                    })
+                );
+            });
+
+    } else {
+
+        element.querySelector(".drinks-list").append(...drinks.map((drink) =>
+            Drink(drink)
+        )
+        );
+    }
     return element;
 }
+
+// const layers = [
+//     {
+//         color: '#feeeca',
+//         label: 'mléčná pěna',
+//     },
+//     {
+//         color: '#fed7b0',
+//         label: 'teplé mléko',
+//     },
+//     {
+//         color: '#613916',
+//         label: 'espresso',
+//     },
+// ];
