@@ -27,12 +27,39 @@ export const Drink = (props) => {
 `
 
   element.querySelector('.layer').append(
-    Layer({
-      color: '#feeeca',
-      label: 'mléčná pěna'
-    })
-  )
+    ...layers.map((layer) => Layer({ color: layer.color, label: layer.label }))
+  );
 
-  return element
+  const orderButton = element.querySelector('.order-btn');
+  if (ordered) {
+    orderButton.classList.add('order-btn--ordered');
+    orderButton.textContent = 'Zrušit';
+  } else {
+    orderButton.classList.remove('order-btn--ordered');
+    orderButton.textContent = 'Objednat';
+  };
+
+  orderButton.addEventListener('click', () => {
+
+    fetch(`https://cafelora.kodim.app/api/me/drinks/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({
+        ordered: !ordered
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        element.replaceWith(
+          Drink(data.result)
+        )
+      });
+  });
+
+
+  return element;
 
 }
