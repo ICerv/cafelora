@@ -2,7 +2,7 @@ import './Layer.css';
 
 
 export const Layer = (props) => {
-  const { color, label } = props
+  const { color, label } = props;
 
   const element = document.createElement('div');
   element.classList.add('layer');

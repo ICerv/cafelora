@@ -1,18 +1,9 @@
 import './style.css';
 
-import { Header } from './components/Header/Header.js';
-import { Banner } from './components/Banner/Banner.js';
-import { Menu } from './components/Menu/Menu.js';
-import { Gallery } from './components/Gallery/Gallery.js';
-import { Contact } from './components/Contact/Contact.js';
-import { Footer } from './components/Footer/Footer.js';
+import { HomePage } from './pages/HomePage/HomePage.js';
 
-const pageElement = document.createElement('div');
-pageElement.classList.add('page');
+const { pathname } = window.location;
 
-const main = document.createElement('main');
-main.append(Banner(), Menu({ drinks: 'loading' }), Gallery(), Contact());
-
-pageElement.append(Header(), main, Footer());
-
-document.querySelector('#app').append(pageElement);
+if (pathname === '/') {
+  document.querySelector('#app').append(HomePage());
+}
