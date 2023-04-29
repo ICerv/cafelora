@@ -12,8 +12,7 @@ export const Menu = () => {
             <p class="menu-intro">
                 Vyberte si z našeho interaktivního menu a nemusíte čekat na obsluhu
             </p>
-            <div class="drinks-list">
-            </div>
+            <div class="drinks-list"></div>
 
             <div class="order-detail">
                 <a href="/objednavka">Detail objednávky</a>

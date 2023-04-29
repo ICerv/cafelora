@@ -1,4 +1,5 @@
 import './Drink.css';
+import { Layer } from '../../Layer/Layer.js';
 
 
 export const Drink = (props) => {
@@ -24,6 +25,14 @@ export const Drink = (props) => {
         </button>
     </div>
 `
+
+  element.querySelector('.layer').append(
+    Layer({
+      color: '#feeeca',
+      label: 'mléčná pěna'
+    })
+  )
+
   return element
 
 }
