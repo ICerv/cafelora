@@ -1,5 +1,6 @@
 import './Menu.css';
 import { Drink } from './components/Drink/Drink.js';
+import { Layer } from './components/Layer/Layer';
 
 export const Menu = () => {
 
@@ -28,15 +29,11 @@ export const Menu = () => {
             image: 'https://cafelora.kodim.app/assets/cups/romano.png',
             layers: [
                 {
-                    color: '#fbdf5b',
-                    label: 'citrón',
-                },
-                {
-                    color: '#613916',
-                    label: 'espresso',
-                },
+                    color: '#feeeca',
+                    label: 'mléčná pěna',
+                }
             ]
         })
     )
-    return element
+    return element;
 }
