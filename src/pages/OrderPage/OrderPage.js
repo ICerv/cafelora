@@ -1,7 +1,7 @@
 import "./OrderPage.css";
 
-import { Header } from "../../../components/Header/Header.js";
-import { Footer } from "../../../components/Footer/Footer.js";
+import { Header } from "../../components/Header/Header.js";
+import { Footer } from "../../components/Footer/Footer.js";
 import { Order } from "./components/Order/Order.js";
 
 export const OrderPage = () => {

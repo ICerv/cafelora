@@ -1,7 +1,7 @@
 import './style.css';
 
 import { HomePage } from './pages/HomePage/HomePage.js';
-import { OrderPage } from "./pages/OrderPage/OrderPage.js";
+import { OrderPage } from './pages/OrderPage/OrderPage.js';
 
 const { pathname } = window.location;
 
