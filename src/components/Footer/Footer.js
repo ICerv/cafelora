@@ -1,4 +1,5 @@
 import './Footer.css';
+
 export const Footer = () => {
 
   const element = document.createElement('footer')
@@ -9,8 +10,7 @@ export const Footer = () => {
           Café Lóra je tréningový projekt v rámci Czechitas kurzu JavaScript 2
           </div>
       </div>
-  
-  `
+  `;
 
-  return element
-}
+  return element;
+};

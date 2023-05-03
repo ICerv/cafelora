@@ -63,3 +63,17 @@ export const Menu = (props) => {
 //         label: 'espresso',
 //     },
 // ];
+
+
+//Komponenta Czechitas prijima dve props "inna" a "nataliia", ktere se pouzivaji k zobrazeni jmen vyvojaru, kteri vytvorily aplikaci FastFingers
+export const Czechitas = (props) => {
+    const { inna, nataliia } = props;
+    const capitalizedInna = inna.charAt(0).toUpperCase() + inna.slice(1);
+    const capitalizedNataliia = nataliia.charAt(0).toUpperCase() + nataliia.slice(1);
+
+    return `
+    <h1> 🙌FastFingers🙌 </h1>
+    <p> Made by: { ${capitalizedInna} } & { ${capitalizedNataliia} } </p
+    `
+}
+console.log(Czechitas())

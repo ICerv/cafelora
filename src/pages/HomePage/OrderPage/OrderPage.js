@@ -4,6 +4,7 @@ import { Header } from "../../../components/Header/Header.js";
 import { Footer } from "../../../components/Footer/Footer.js";
 
 export const OrderPage = () => {
+
   const element = document.createElement("div");
 
   element.classList.add("page");
@@ -32,6 +33,7 @@ export const OrderPage = () => {
       </div>
       </div>
   </main>
-  `
+`
+
   return element;
 };
